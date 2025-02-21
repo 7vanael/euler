@@ -24,12 +24,15 @@
           (should= [1 2 3 5 8 13 21 34 55 89] (get-fibonacci-to-n 89))
       )
       (it "gets the sum of even numbers from a vector"
-          (should= 2 (get-sum-of-even [1 2]))
-          (should= 2 (get-sum-of-even [1 2 3]))
-          (should= 2 (get-sum-of-even [1 2 3 5]))
-          (should= 10 (get-sum-of-even [1 2 3 5 8]))
+          (should= 2 (get-sum-of-evens [1 2]))
+          (should= 2 (get-sum-of-evens [1 2 3]))
+          (should= 2 (get-sum-of-evens [1 2 3 5]))
+          (should= 10 (get-sum-of-evens [1 2 3 5 8]))
       )
+
     (it "Solves #2"
+      (should= "A sequence must have at least the first two numbers; Try 2 or higher" (euler-2 0))
+      (should= "A sequence must have at least the first two numbers; Try 2 or higher" (euler-2 1))
       (should= 2 (euler-2 2))
       (should= 2 (euler-2 3))
       (should= 2 (euler-2 4))

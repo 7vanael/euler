@@ -1,23 +1,15 @@
 (ns euler.level1.problem002)
 
 (defn get-fibonacci-to-n [n]
-  (cond (= n 2) [1 2]
-        (> n 2)
-          (loop [n n
-                 sequence [1 2]]
-            (if (> (reduce + (take-last 2 sequence)) n)
-              sequence
-              (recur n (conj sequence (reduce + (take-last 2 sequence))))
-            )
+  (loop [sequence [1 2]]
+    (let [next-num-in-sequence (reduce + (take-last 2 sequence))]
+      (if (> next-num-in-sequence n)
+        sequence
+        (recur (conj sequence next-num-in-sequence))))))
 
-          )
-        )
-  )
-(defn get-sum-of-even [coll]
-  (reduce + (filter even? coll))
-  )
+  (defn get-sum-of-evens [coll] (reduce + (filter even? coll)))
 
-
-(defn euler-2 [n]
-    (get-sum-of-even (get-fibonacci-to-n n))
-    )
+  (defn euler-2 [n]
+    (if (< n 2)
+      "A sequence must have at least the first two numbers; Try 2 or higher"
+      (get-sum-of-evens (get-fibonacci-to-n n))))

@@ -1,0 +1,4 @@
+(+ 1 2 3)
+(loop [n 1] (if (= 6 n) n (recur(+ n (inc n))))
+)
+(loop [n 1 m 0] (if (= 6 m) m (recur (inc n) (+ m n))))
