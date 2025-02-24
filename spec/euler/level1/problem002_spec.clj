@@ -12,6 +12,8 @@
 
   (describe "Euler Problem #2"
       (it "finds the fibonacci numbers up to n (n>=2)"
+          (should= [0] (get-fibonacci-to-n 0))
+          (should= [0 1] (get-fibonacci-to-n 1))
           (should= [1 2] (get-fibonacci-to-n 2))
           (should= [1 2 3] (get-fibonacci-to-n 3))
           (should= [1 2 3] (get-fibonacci-to-n 4))
@@ -31,8 +33,8 @@
       )
 
     (it "Solves #2"
-      (should= "A sequence must have at least the first two numbers; Try 2 or higher" (euler-2 0))
-      (should= "A sequence must have at least the first two numbers; Try 2 or higher" (euler-2 1))
+      (should= 0 (euler-2 0))
+      (should= 0 (euler-2 1))
       (should= 2 (euler-2 2))
       (should= 2 (euler-2 3))
       (should= 2 (euler-2 4))
