@@ -1,22 +1,20 @@
 (ns euler.level1.problem003)
 
-(defn remove-factor [number factor]
+(defn divide-by-factor [number factor]
   (let [remainder (rem number factor)]
     (if (= remainder 0)
-      (remove-factor (/ number factor) factor)
+      (divide-by-factor (/ number factor) factor)
       number)))
 
 (defn get-primes [n]
-  (loop [primes [] n n i 2 ]
-    (let [remainder (rem n i) i-squared (* i i)]
-      (cond (and (not= remainder 0) (< n i-squared))
-            (if (> n 1)
-              (conj primes n)
-              primes)
-        (= remainder 0) (recur (conj primes i) (remove-factor n i) (inc i))
-        (not= remainder 0) (recur primes n (inc i))))))
-
-
+  (loop [primes [] n n factor 2 ]
+    (let [remainder (rem n factor)
+          i-squared (* factor factor)
+          done-factoring (and (not= remainder 0) (< n i-squared))]
+      (cond (and (> n 1) done-factoring) (conj primes n)
+        done-factoring primes
+        (= remainder 0) (recur (conj primes factor) (divide-by-factor n factor) (inc factor))
+        :else (recur primes n (inc factor))))))
 
 (defn euler-3 [n]
   (if (< n 2)
