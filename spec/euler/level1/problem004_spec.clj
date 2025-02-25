@@ -13,18 +13,18 @@
 (focus-describe "Euler Problem #4"
 
     (it "identifies if a number is a palindrome"
-        (should= true (is-palindrome 101))
-        (should= true (is-palindrome 1001))
-        (should= true (is-palindrome 10001))
-        (should= false (is-palindrome 100))
-        (should= false (is-palindrome 1005))
-        (should= false (is-palindrome 10054)))
+        (should= true (palindrome? "101"))
+        (should= true (palindrome? "1001"))
+        (should= true (palindrome? "10001"))
+        (should= false (palindrome? "100"))
+        (should= false (palindrome? "1005"))
+        (should= false (palindrome? "10054")))
 
     (it "gets the highest number using n number of digits"
-        (should= 9 (highest-digit-number 1))
-        (should= 99 (highest-digit-number 2))
-        (should= 999 (highest-digit-number 3))
-        (should= 9999 (highest-digit-number 4)))
+        (should= 10 (number-above-highest-digit-number 1))
+        (should= 100 (number-above-highest-digit-number 2))
+        (should= 1000 (number-above-highest-digit-number 3))
+        (should= 10000 (number-above-highest-digit-number 4)))
 
     (it "gets all palindromes"
         (should= [9 8 7 6 5 4 3 2 1] (get-all-palindromes 1))
