@@ -1,4 +1,5 @@
-(ns euler.level1.problem003)
+(ns euler.level1.problem003
+  (:require [euler.level1.helper :as helper]))
 
 (defn divide-by-factor [number factor]
   (let [remainder (rem number factor)]
@@ -19,4 +20,4 @@
 (defn euler-3 [n]
   (if (< n 2)
     "The smallest prime is 2, please try a larger number"
-    (apply max (get-primes n))))
+    (apply max (helper/get-primes n))))

@@ -1,4 +1,5 @@
-(ns euler.level1.problem005)
+(ns euler.level1.problem005
+  (:require [euler.level1.helper :as helper]))
 
 (defn get-multiple [n]
   (->> n
@@ -6,17 +7,17 @@
        (apply *)
        int))
 
-(defn get-primes [n]
-  (loop [primes [] n n factor 2]
-    (cond (<= n 1) primes
-          (= 0 (rem n factor)) (recur (conj primes factor) (/ n factor) factor)
-          :else (recur primes n (inc factor)))))
+(defn merge-maxes [maxes n]
+  (->> n
+       helper/get-primes
+       frequencies
+       (merge-with max maxes)))
 
-(defn max-frequency-map [n get-primes]
+(defn max-frequency-map [n]
   (reduce
-    #(merge-with max %1 (frequencies (get-primes %2))) ;The function used to reduce
-    {} ;the first argument passed to reduce
-    (range 1 (inc n))));the second argument passed to reduce
+    merge-maxes                   ;The function used to merge-maxes
+    {}                            ;the first argument passed to merge-maxes
+    (range 1 (inc n))))          ;the second argument passed to merge-maxes
 
 (defn euler-5 [n]
-  (get-multiple (max-frequency-map n get-primes)))
+  (get-multiple (max-frequency-map n)))

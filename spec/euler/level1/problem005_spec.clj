@@ -19,31 +19,21 @@
     (should= 30 (get-multiple {2 1, 3 1, 5 1}))
     (should= 60 (get-multiple {2 2, 3 1, 5 1})))
 
-  (it "Finds  the primes of n"
-    (should= [2] (get-primes 2))
-    (should= [3] (get-primes 3))
-    (should= [2 2] (get-primes 4))
-    (should= [5] (get-primes 5))
-    (should= [2 3] (get-primes 6))
-    (should= [7] (get-primes 7))
-    (should= [2 3 5] (get-primes 30))
-    (should= [2 2 3 5] (get-primes 60)))
-
   (it "finds the map of max frequencies of prime numbers for 3"
-    (should= {2 1, 3 1} (max-frequency-map 3 get-primes)))
+    (should= {2 1, 3 1} (max-frequency-map 3)))
   (it "finds the map of max frequencies of prime numbers for 4"
-    (should= {2 2, 3 1} (max-frequency-map 4 get-primes)))
+    (should= {2 2, 3 1} (max-frequency-map 4)))
   (it "finds the map of max frequencies of prime numbers for 5"
-    (should= {2 2, 3 1, 5 1} (max-frequency-map 5 get-primes)))
+    (should= {2 2, 3 1, 5 1} (max-frequency-map 5)))
 
   (it "Solves #5"
-       (should= 1 (euler-5 1))
-       (should= 2 (euler-5 2))
-       (should= 6 (euler-5 3))
-       (should= 12 (euler-5 4))
-       (should= 60 (euler-5 5))
-       (should= 60 (euler-5 6))
-       (should= 2520 (euler-5 10))
-       (should= 232792560 (euler-5 20))))
+    (should= 1 (euler-5 1))
+    (should= 2 (euler-5 2))
+    (should= 6 (euler-5 3))
+    (should= 12 (euler-5 4))
+    (should= 60 (euler-5 5))
+    (should= 60 (euler-5 6))
+    (should= 2520 (euler-5 10))
+    (should= 232792560 (euler-5 20))))
 
 (run-specs)
