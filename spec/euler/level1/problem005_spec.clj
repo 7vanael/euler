@@ -9,24 +9,26 @@
   What is the smallest positive number that is evenly divisible
   by all of the numbers from 1 to 20 ?)
 
-(describe "Euler Problem #5"
+(focus-describe "Euler Problem #5"
 
-  (it "Gets multiples"
-      (should= 1 (get-multiple 1))
-      (should= 2 (get-multiple 2))
-      (should= 6 (get-multiple 3))
-      (should= 12 (get-multiple 4))
-      (should= 60 (get-multiple 5))
-      (should= 120 (get-multiple 6))
+  (it "Gets multiple"
+      (should= 1 (get-multiple [1]))
+      (should= 2 (get-multiple [2]))
+      (should= 6 (get-multiple [2 3]))
+      (should= 4 (get-multiple [2 2]))
+      (should= 30 (get-multiple [2 3 5]))
+      (should= 60 (get-multiple [2 2 3 5]))
       )
-  (it "confirms if a multiple is divisible by all factors in range 1 to n"
-      (should= true (divisible-by-all? 1 1))
-      (should= true (divisible-by-all? 2 2))
-      (should= true (divisible-by-all? 6 3))
-      (should= true (divisible-by-all? 12 4))
-      (should= true (divisible-by-all? 60 5))
-      (should= false (divisible-by-all? 40 5))
-      )
+
+  (it "Finds  the primes of n"
+    (should= [2] (get-primes 2))
+    (should= [3] (get-primes 3))
+    (should= [2 2] (get-primes 4))
+    (should= [5] (get-primes 5))
+    (should= [2 3] (get-primes 6))
+    (should= [7] (get-primes 7))
+    (should= [2 3 5] (get-primes 30))
+    (should= [2 2 3 5] (get-primes 60)))
 
   (it "Solves #5"
     (should= 1 (euler-5 1))

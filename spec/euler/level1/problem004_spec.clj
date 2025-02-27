@@ -10,7 +10,7 @@
      Find the largest palindrome made from the product of
      two 3 digit numbers)
 
-(focus-describe "Euler Problem #4"
+(describe "Euler Problem #4"
 
     (it "identifies if a number is a palindrome"
         (should= true (palindrome? "101"))
