@@ -2,7 +2,6 @@
 
 (defn get-multiple [n]
   (->> n
-       frequencies
        (map (fn [[prime frequency]] (Math/pow prime frequency)))
        (apply *)
        int))
@@ -13,6 +12,11 @@
           (= 0 (rem n factor)) (recur (conj primes factor) (/ n factor) factor)
           :else (recur primes n (inc factor)))))
 
+(defn max-frequency-map [n get-primes]
+  (reduce
+    #(merge-with max %1 (frequencies (get-primes %2))) ;The function used to reduce
+    {} ;the first argument passed to reduce
+    (range 1 (inc n))));the second argument passed to reduce
+
 (defn euler-5 [n]
-  (let [ prime-list (mapcat #(get-primes %) (range 1 (inc n)))]
-    (get-multiple prime-list)))
+  (get-multiple (max-frequency-map n get-primes)))
