@@ -16,7 +16,7 @@
   (it "identifies if a number is prime"
     (should= false (prime? 1))
     (should= true (prime? 3))
-    (should= true (prime? 3))
+    (should= false (prime? 15))
     (should= false (prime? 4))
     (should= true (prime? 5))
     (should= true (prime? 17))

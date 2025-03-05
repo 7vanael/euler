@@ -11,7 +11,6 @@
 
 (describe "Euler Problem #7"
 
-
   (it "Solves #7 for 1"
     (should= 2 (euler-7 1)))
   (it "Solves #7 for 3"
@@ -25,8 +24,6 @@
   (it "Solves #7 for 6"
     (should= 13 (euler-7 6)))
   (it "Solves #7 for 10001"
-    (should= 104743 (euler-7 10001)))
-  )
-
+    (should= 104743 (euler-7 10001))))
 
 (run-specs)
