@@ -2,7 +2,7 @@
   (:require [speclj.core :refer :all]
             [euler.level1.helper :refer :all]))
 
-(focus-describe "Helper"
+(describe "Helper"
   (it "Finds all the primes of n"
     (should= [2] (get-primes 2))
     (should= [3] (get-primes 3))

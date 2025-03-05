@@ -25,5 +25,3 @@
     (should= 13 (euler-7 6)))
   (it "Solves #7 for 10001"
     (should= 104743 (euler-7 10001))))
-
-(run-specs)

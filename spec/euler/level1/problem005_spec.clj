@@ -9,7 +9,7 @@
     What is the smallest positive number that is evenly divisible
     by all of the numbers from 1 to 20 ?)
 
-(focus-describe "Euler Problem #5"
+(describe "Euler Problem #5"
 
   (it "Gets multiple"
     (should= 1 (get-multiple {1 1}))

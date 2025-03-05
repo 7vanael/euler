@@ -1,5 +1,6 @@
 (ns euler.level1.problem002)
 
+
 (defn get-fibonacci-to-n [n]
   (when (> n 1)
     (loop [sequence [1 2]]
@@ -10,7 +11,7 @@
 
   (defn get-sum-of-evens [coll] (reduce + (filter even? coll)))
 
-  (defn euler-2 [n]
-    (if (< n 2)
-      0
-      (get-sum-of-evens (get-fibonacci-to-n n))))
+(defn euler-2 [n]
+  (if (< n 2)
+    0
+    (get-sum-of-evens (get-fibonacci-to-n n))))
