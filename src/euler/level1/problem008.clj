@@ -9,7 +9,7 @@
 
 (defn number-to-digit-vector [number]
   (->> number
-       (str)
+       str
        split-to-characters
        (map #(Integer/parseInt %))
        (into [])))
