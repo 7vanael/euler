@@ -3,7 +3,7 @@
             [euler.level1.helper :refer :all]))
 
 (describe "Helper"
-  (it "Finds all the primes of n"
+  (it "Finds all the prime factors of n"
     (should= [2] (get-primes 2))
     (should= [3] (get-primes 3))
     (should= [2 2] (get-primes 4))
@@ -23,4 +23,11 @@
     (should= true (prime? 29))
     (should= false (prime? 144))
     )
+
+  (it "provides a lazy list of primes so the nth (0 index) prime can be requested"
+    (should= 2 (nth primes 0))
+    (should= 5 (nth primes 2))
+    (should= 7 (nth primes 3))
+    (should= 13 (nth primes 5)))
   )
+

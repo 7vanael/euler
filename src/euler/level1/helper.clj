@@ -15,3 +15,6 @@
                   (cond (> i-squared n) true
                         (zero? (rem n factor)) false
                         :else (recur (+ factor 2)))))))
+
+(def primes
+  (conj (filter prime? (iterate #(+ 2 %) 3)) 2))

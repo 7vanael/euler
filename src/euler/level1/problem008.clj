@@ -11,14 +11,13 @@
   (->> number
        str
        split-to-characters
-       (map #(Integer/parseInt %))
-       (into [])))
+       (mapv #(Integer/parseInt %))))
 
 (defn max-product-in-partition [width number]
-    (->> number
+  (->> number
        (partition width 1)
        (map #(apply * %))
-       (apply max 0)))
+       (apply max)))
 
 (defn euler-8 [n]
   (max-product-in-partition n (number-to-digit-vector thousand-digit-number)))

@@ -14,7 +14,7 @@
   (= n (apply + candidates)))
 
 (defn meets-acceptance-criteria? [n candidates]
-  (and (sum-to-n? n candidates) (unique? candidates) (pythagorean? candidates)))
+  (and (sum-to-n? n candidates) #_(unique? candidates) (pythagorean? candidates)))
 
 (defn range-top [n]
   (inc (quot n 2)))
@@ -31,4 +31,8 @@
   (filter #(meets-acceptance-criteria? n %) (find-triples n)))
 
 (defn euler-9 [n]
-  (map (fn [v] (apply * v)) (get-acceptable-triple n)))
+  (->> n
+       find-triples
+       (filter #(meets-acceptance-criteria? n %))
+       (map #(apply * %)))
+  #_(map (fn [v] (apply * v)) (get-acceptable-triple n)))
