@@ -7,7 +7,7 @@
 #_(The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17
        Find the sum of all the primes below 2 million)
 
-(describe "Euler Problem #10"
+(focus-describe "Euler Problem #10"
 
   (it "Solves #10"
     (should= 17 (euler-10 10))
