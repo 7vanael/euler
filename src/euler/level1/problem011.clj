@@ -47,9 +47,7 @@
   (apply conj (column-starts collection) (row-starts collection)))
 
 (defn in-bounds? [collection [row column]]
-  (and (>= row 0)
-       (< row (count collection))
-       (>= column 0)
+  (and (< row (count collection))
        (< column (count (first collection)))))
 
 (defn populate-diagonals [start collection]

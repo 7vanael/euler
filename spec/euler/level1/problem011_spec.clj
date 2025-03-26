@@ -20,7 +20,7 @@
             [4 5 6]
             [7 8 9]])
 
-(describe "Euler Problem #11"
+(focus-describe "Euler Problem #11"
 
   (it "finds the max product in a single row"
     (should= 72 (max-product-in-row 2 [7 8 9]))
